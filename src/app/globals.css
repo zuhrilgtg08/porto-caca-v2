@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  /* Light Mode Colors */
+  --color-primary: #7D5646;
+  --color-secondary: #BB866F;
+  --color-accent: #664D43;
+  --color-extra: #735240;
+  --color-dark: #1F2937;
+  --color-light: #F9FAFB;
+  --color-text: #000000;
+  --color-bg: #ffffff;
+
+  /* Dark Mode Colors */
+  --color-primary-dark: #D4A574;
+  --color-secondary-dark: #BB866F;
+  --color-accent-dark: #E8C4A0;
+  --color-text-dark: #F5E6D3;
+  --color-bg-dark: #1A1410;
+
+  --font-sans: 'Inter', sans-serif;
+
+  --animation-fade-in: fadeIn 0.5s ease-in-out;
+  --animation-slide-up: slideUp 0.5s ease-in-out;
+}
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+a {
+  transition: all 0.2s ease;
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-[#7D5646] text-white hover:bg-[#664D43];
+  }
+
+  .dark .btn-primary {
+    @apply bg-[#D4A574] text-[#1A1410] hover:bg-[#E8C4A0];
+  }
+  
+  .btn-secondary {
+    @apply bg-[#BB866F] text-white hover:bg-[#A0744F];
+  }
+
+  .dark .btn-secondary {
+    @apply bg-[#BB866F] text-[#1A1410] hover:bg-[#D4A574];
+  }
+  
+  .section-title {
+    @apply text-3xl font-bold mb-8 text-center text-[#1F2937];
+  }
+
+  .dark .section-title {
+    @apply text-[#F5E6D3];
+  }
+} 
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
